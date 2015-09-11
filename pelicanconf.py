@@ -18,7 +18,9 @@ DEFAULT_DATA_FORMAT= '%A %d %B %Y'
 STATIC_PATHS= ['images','extra']
 
 #Shift the installed location of a file
-EXTRA_PATH_METADA={ 'extra/CNAME':{'path','CNAME'}}
+EXTRA_PATH_METADA={ 
+		'extra/CNAME':{'path','CNAME'},
+			}	
 
 #Extract post date from filename
 FILENAME_METADA= '(?P<date>\d{4}-\d{2}-\d{2})'
