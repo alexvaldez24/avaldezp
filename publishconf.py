@@ -13,8 +13,10 @@ from pelicanconf import *
 SITEURL = 'http://www.avaldezp.com'
 RELATIVE_URLS = False
 
-FEED_ALL_ATOM = 'feeds/all.atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+FEED_ALL_ATOM = 'feed.xml'
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM=None
+Feed_Max_ITEMS= 25
 
 DELETE_OUTPUT_DIRECTORY = True
 
