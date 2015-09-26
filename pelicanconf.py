@@ -16,6 +16,13 @@ DEFAULT_DATA_FORMAT= '%A %d %B %Y'
 
 #Static paths will be copied without parsing thero
 STATIC_PATHS= ['images','extra']
+ABOUT_ME = "Whatever you want to say about yourself"
+STATIC_PATHS = ['images']
+PROFILE_PICTURE = "bananaprofilepicture.png"
+
+HEADER_IMAGE = "alexheaderimage.png"
+GITHUB_ICON= "github-icon"
+
 
 #Shift the installed location of a file
 EXTRA_PATH_METADA={ 
@@ -59,7 +66,10 @@ PLUGIN_PATH='/home/alex/pelican_plugins/pelican-plugins'
 PLUGINS=['neighbors']
 
 #Theme
-THEME='/home/alex/pelican_themes/pelican-themes/pelican-bootstrap3'
+#THEME='/home/alex/pelican_themes/pelican-themes/pelican-bootstrap3'
+THEME='/home/alex/pelican_themes/pelican-bootstrap3-lovers'
+BOOTSTRAP_THEME='lovers'
+
 WHOAMI_URL='/home/alex/Pictures/pelican_images/whoami.jpg'
 GREETING= 'Howdy!'
 #LICENCE_NAME='BY-NC-SA'
@@ -81,8 +91,11 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+#SOCIAL = (('You can add links in your config file', '#'),
+#          ('Another social link', '#'),)
+# Social settings
+SOCIAL = (('github', 'https://github.com/alexvaldez24'),
+          ('twitter', 'https://twitter.com/alexvaldez900'),)
 
 DEFAULT_PAGINATION = False
 
