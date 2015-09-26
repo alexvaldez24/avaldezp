@@ -6,4 +6,4 @@ Hello World
 :tags: pelican, web
 :slug: Hello Alex
 
-My *first* post n_n using `Pelican :D <http://docs.getpelican.com/en/3.3.0/getting_started.html>`_!
+My *first* post using `Pelican  <http://docs.getpelican.com/en/3.3.0/getting_started.html>`_!
