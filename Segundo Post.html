@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Host de un BLOG en una Página de GitHub</title>
+    <title>Host un Blog en una Página de GitHub</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,8 +12,8 @@
     <!-- Open Graph tags -->
 
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Host de un BLOG en una Página de GitHub"/>
-            <meta property="og:url" content="./Segundo.html"/>
+            <meta property="og:title" content="Host un Blog en una Página de GitHub"/>
+            <meta property="og:url" content="./Segundo Post.html"/>
             <!--meta property="og:description" content="La página de GitHub es un servicio gratis de web hosting para proyectos compuestos de archivos estáticos. Combina Páginas del repositorio con la version de control de git y un generador estático de sitios como Pelican que nos permite tener un conjunto increible de herramientas para construir un sitio web ..."/-->
 
     <!-- Bootstrap -->
@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-sm-8 col-md-8 col-lg-9 col-xs-12">
                 <div>
-                <img src="./images/limalagrisheaderimage.png" class="img-responsive" alt="Responsive image">
+                <img src="./images/alexheaderimage.png" class="img-responsive" alt="Responsive image">
                 </div>
                 <hr class="hidden-xs"/>
 
@@ -44,10 +44,10 @@
         <article>
             <header class="page-header">
                 <h2>
-                    <a href="./Segundo.html"
+                    <a href="./Segundo Post.html"
                        rel="bookmark"
-                       title="Permalink to Host de un BLOG en una Página de GitHub">
-                        Host de un BLOG en una Página de GitHub
+                       title="Permalink to Host un Blog en una Página de GitHub">
+                        Host un Blog en una Página de GitHub
                     </a>
                 </h2>
             </header>
@@ -72,7 +72,7 @@
                     <p><a class="reference external" href="http://pages.github.com">La página de GitHub</a> es un servicio gratis de web hosting para proyectos compuestos de archivos estáticos.
 Combina <strong>Páginas del repositorio</strong> con <strong>la version de control de git</strong> y un <strong>generador estático de sitios</strong> como <strong>Pelican</strong>   que nos permite tener un conjunto increible de herramientas para construir un sitio web.</p>
 <p><strong>Entonces..!</strong></p>
-<p><strong>1 INSTALACIÓN DE GIT</strong>.</p>
+<p><strong>1 Instalación git</strong>.</p>
 <p>Instalar el paquete de git y escribir las configuraciones globales para nombre  usuario.</p>
 <pre class="literal-block">
 $ sudo apt-get install git git-doc
@@ -80,14 +80,14 @@ $ git config --global user.name &quot;USERNAME&quot;
 $ git config --global user.email USERNAME.EMAIL&#64;example.com
 $ git config --global core.edito EDITOR
 </pre>
-<p><strong>2 CREACION DEL REPOSITORIO GIT</strong>.</p>
+<p><strong>2 Crear el Repositorio git</strong>.</p>
 <p>Dentro de mi carpeta llamada alex  donde creamos el blog, creo 2 archivos llamados: <strong>.gitignore</strong> y  <strong>readme.rst</strong>.
 El archivo <strong>.gitignore</strong> se encarga de ignorar que archivos o directorios no seran considerados en el track de la version de control.
 Por ejemplo, yo no quiero almacenar en el track:</p>
 <pre class="literal-block">
-*.pid
-*.pyc
-output/
+***.pid**
+***.pyc**
+**output/**
 </pre>
 <p>Crearemos un archivo README.rst que le permitira a GitHub conocer de que se trata el proyecto. En mi caso luce asi:</p>
 <pre class="literal-block">
@@ -99,8 +99,9 @@ This repository holds my blog which you can visit at www.avaldezp.com.
 It is compiled by `Pelican &lt;http://docs.getpelican.com/&gt;`_ and hosted on `GitHub Pages &lt;http://pages.github.com/&gt;`_.
 </pre>
 <p>Ahora , podemos crear el repositorio local, añadimos los archivos y lo que queremos almacenar en el track y ejecutamos el primer commit:</p>
-<pre class="literal-block">
-$ git init
+<dl class="docutils">
+<dt>::</dt>
+<dd>$ git init
 $ git add README.rst
 $ git add .gitignore
 $ git add Makefile
@@ -109,40 +110,45 @@ $ git add pelicanconf.py
 $ git add publishconf.py
 $ git status
 $ git commit -a -m &quot;Primer commit&quot;
-$ git log
-</pre>
-<p><strong>3 TEST DEL SITIO</strong></p>
+$ git log</dd>
+</dl>
+<p><strong>3 Tester el sitio</strong></p>
 <p>La página de usuario de GitHub mostrará todo el contenido en la rama master. Yo prefiero trabajar en una nueva rama con mis archivos y almacenar solo el output hacia la rama master. Creamos primero una nueva rama de trabajo llamada <strong>source</strong>.</p>
-<pre class="literal-block">
-$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git checkout  -b source
-</pre>
+<dl class="docutils">
+<dt>::</dt>
+<dd>$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git checkout  -b source</dd>
+</dl>
 <p>Antes de publicar una forma de testear podemos tester el sitio en el host local con los comandos:</p>
-<pre class="literal-block">
-$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ make html
-$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ make serve
-</pre>
+<dl class="docutils">
+<dt>::</dt>
+<dd>$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ make html
+$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ make serve</dd>
+</dl>
 <p>Trataermos de visualizarlo en  en localhost:8000 desde un navegador web. Si todo esta bien :D ya estamos listos!.
 Como todo resulto bien en el test, tengo mi folder output y quiero guardar todo lo que tengo hasta el momento. Usando Git hago un commit de todos mis cambios locales. Esta es una buena practica para tener una version de control de nuestro trabajo, para hacer esto solo usamos 2 comandos. Primero, añadimos los archivos y despues hacemos el commit.</p>
-<pre class="literal-block">
-$ git add .
-$ git commit -m &quot;Segundo Commit&quot;
-</pre>
-<p><strong>4 PUBLICACIÓN DEL BLOG EN GITHUB</strong></p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>$ git add .
+$ git commit -m &quot;Segundo Commit&quot;</dd>
+</dl>
+<p><strong>4 Publicar el Sitio Web en GitHub</strong></p>
 <p>Recordando que nos encontramos en una rama llamada  &quot;<strong>source</strong> ,necesitamos copiar los archivos necesarios hacia la rama master para tenerla en nuestra Página de Usuario de GitHub. Para hacer esto podemos empujar directameente el folder llamado output  al folder master, pero yo prefiero usar un script que me ayuda a hacer este tarea. El script que hago mención y que uso se llama ghp-import. Este script exporta el contenido del folder output hacia la
 &quot;gh-pages&quot; rama. Entonces creo una rama  llamada &quot;gh-pages&quot;, corro el script , y luego empujro el contenido de la gh-pages hacia mi rama master.
 Estos pasos son mostrados acontinuacion en la linea de comandos.</p>
 <p>Si no tienes instalado ghp-import, lo puedes obtener simplemente con:</p>
-<pre class="literal-block">
-$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ pip install ghp-import
-</pre>
+<dl class="docutils">
+<dt>::</dt>
+<dd>$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ pip install ghp-import</dd>
+</dl>
 <p>Creamos la rama gh-pages y corremos el script ghp-import.</p>
-<pre class="literal-block">
-$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git branch gh-pages
+<dl class="docutils">
+<dt>::</dt>
+<dd>$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git branch gh-pages
 $(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ ghp-import output
 $(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git checkout master
 $(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git merge gh-pags
-$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git push --all
-</pre>
+$(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ git push --all</dd>
+</dl>
 <p>Visualizemos ahora nuestra página de Usuario en GitHub y esperemos pacientemente, nuestro sitio se mostrará pronto. Hemos subido todo la rama al repositorio de Git, pero tu solo puedes subir la rama master y la rama source. No necesitaremos nunca la rama gh-pages.</p>
 <p>En el post, el nombre de usuario que estoy usando es alexvaldez24, entonces para ver la  página estática de nuestro blog buscamos el sitio
 <a class="reference external" href="http://alexvaldez24.github.io/avaldezp/">alexvaldez24.github.io/avaldezp/</a></p>
@@ -168,7 +174,7 @@ Buena Suerte!</p>
             <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12">
                 <div class="row text-center">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img class="img-circle image100" src="./images/alexprofilepicture.png" alt="" />
+                        <img class="img-circle image100" src="./images/bananaprofilepicture.png" alt="" />
                     </div>
                 </div><hr />
                 <ul class="nav nav-pills nav-stacked">
@@ -183,7 +189,7 @@ Buena Suerte!</p>
         ~ About me ~
     </div>
     <div class="panel-body">
-        Bach. Ingenieria Electronica - 26 Años. Trabajo en el Area de Operaciones, Radio Observatorio de Jicamarca. Amante de la Programacion.
+        Whatever you want to say about yourself
     </div>
 </div>
 

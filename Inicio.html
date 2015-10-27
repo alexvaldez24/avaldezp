@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Construir un Blog a través del Generador Estático de Sitio PELICAN</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Construir un Blog a través del Generador Estático de Sitio PELICAN"/>
+            <meta property="og:url" content="./Inicio.html"/>
+            <!--meta property="og:description" content="Pelican es un poderoso generador estático de sitios de Python. El diseño de como se ve y la disposición de los elementos de este sitio fueron basados en la página de Christine. Para el diseño y el tema se utilizo Twitter Bootstrap, y para escribir las publicaciones usamos reStructuredText, luego ..."/-->
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lovers.min.css" type="text/css"/>
+        <link rel="stylesheet" href="./theme/css/style.lovers.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+    <!--link href="./theme/css/pygments.css" rel="stylesheet"-->
+    <link href="./theme/css/prism.css" rel="stylesheet" />
+  
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery.pageslide.css">
+
+
+</head>
+<body>
+
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-lg-9 col-xs-12">
+                <div>
+                <img src="./images/limalagrisheaderimage.png" class="img-responsive" alt="Responsive image">
+                </div>
+                <hr class="hidden-xs"/>
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h2>
+                    <a href="./Inicio.html"
+                       rel="bookmark"
+                       title="Permalink to Construir un Blog a través del Generador Estático de Sitio PELICAN">
+                        Construir un Blog a través del Generador Estático de Sitio PELICAN
+                    </a>
+                </h2>
+            </header>
+            <div class="entry-content">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>Wed 21 October 2015
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag-pelican.html">pelican</a>
+        /
+	<a href="./tag-web.html">web</a>
+  
+</footer><!-- /.post-info -->                    </div>
+                    <div class="panel-body">
+                    <p>Pelican es un poderoso <strong>generador estático de sitios de Python</strong>. El diseño de como se ve y la disposición de los elementos
+de este sitio fueron basados en la página de <a class="reference external" href="http://chdoig.github.io/create-pelican-blog.html">Christine</a>.
+Para el diseño y el tema se utilizo Twitter Bootstrap, y para escribir las publicaciones usamos <strong>reStructuredText</strong>, luego Pelican
+se encarga de compilar el contenido en una salida de html apropiada para el blog.</p>
+<p>Me gusta la  idea de crear un sitio web estático. Algunas de las ventajas son:</p>
+<ul class="simple">
+<li>No se requiere una base de datos... plaintext es facil de editar, hacer backup y mover de un lado a otro.</li>
+<li>plaintext te permite utilizar un editor.. yo estoy usando nano, pero puedes usar vim,gedit,emacs,etc</li>
+<li>Barato y facil de publicar practicamente donde uno desee.. una opción: <a class="reference external" href="https://github.com">Github</a>.</li>
+<li>Seguridad.Evitamos los problemas de seguridad teniendo el software instalado en el host web.</li>
+<li>Obsolencia.No hay que preocuparse sobre los updates y mantenimiento del software del lado del servidor.</li>
+</ul>
+<p>La tradicional desventaja de usar páginas estáticas para un blog ha sido la ausencia de elementos dinámicos-comentarios de usuarios-
+pero Javascript para cosas como Twitter widget le proveen actualizaciones en tiempo real .</p>
+<p>Es asi como construi mi blog usando Pelican .</p>
+<p><strong>1 INSTALACIÓN</strong>.</p>
+<p>Instale primero Pelican y algunas herramientas adicionales para crear un entorno virtual usando
+<a class="reference external" href="http://www.circuidipity.com/python2-and-python3.html">virtualenv</a> y <a class="reference external" href="https://pypi.python.org/pypi/pip">pip</a>.
+Esto me permite crear una area de trabajo específica para mi blog y un usuario separado de mi instalacion de python por defecto.
+Con el virtualenv instalado y usando mi blog como ejemplo:</p>
+<pre class="literal-block">
+$ cd /home/alex/.virtualenvs/
+$ virtualenv ~/.virtualenvs/pelican
+$ source ~/.virtualenvs/pelican/bin/activate
+$ cd pelican
+$ (pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican$ pip install pelican
+</pre>
+<p>Luego cree un directorio para almacenar el contenido de mi blog y ejecutar pelican-quickstart para crear el diseño y la configuración  del sitio por defecto. El tema y el diseño del sitio por defecto al final fue modificado porque utilize el tema y el plugins de
+<a class="reference external" href="http://chdoig.github.io/create-pelican-blog.html">Christine</a></p>
+<pre class="literal-block">
+$ (pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican$ mkdir alex
+$ (pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican$ cd alex
+$ (pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ pelican quickstart
+Welcome to pelican-quickstart v3.3.0.
+
+This script will help you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+&gt; Where do you want to create your new web site? [.]
+&gt; What will be the title of this web site? Alex&#64;nderV.
+&gt; Who will be the author of this web site? Alexander Valdez
+&gt; What will be the default language of this web site? [en]
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) n
+&gt; Do you want to enable article pagination? (Y/n) n
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)
+&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n)
+&gt; Do you want to upload your website using FTP? (y/N)
+&gt; Do you want to upload your website using SSH? (y/N)
+&gt; Do you want to upload your website using Dropbox? (y/N)
+&gt; Do you want to upload your website using S3? (y/N)
+&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N)
+Done. Your new project is available at /home/dwa/circuidipity
+</pre>
+<p>Esta es la disposición de archivos generada por pelican-quickstart:</p>
+<pre class="literal-block">
+$ tree
+├── content
+├── develop_server.sh
+├── fabfile.py
+├── Makefile
+├── output
+├── pelicanconf.py
+└── publishconf.py
+2 directories, 5 files .
+</pre>
+<p><strong>2 PRIMER POST</strong>.</p>
+<p>Los post o anotaciones van en la carpeta content y además yo he creado una carpeta images y pages como subdirectorio dentro del folder content
+para colocar imagenes y otras opciones como about y contact.</p>
+<pre class="literal-block">
+$ mkdir content/{images,pages}
+</pre>
+<p>Dentro de content creo el primer post llamando hola_mundo.rst using <strong>reStructuredText</strong>:</p>
+<pre class="literal-block">
+Hello   World
+
+:date: 2015-10-01 10:30
+:tags: pelican , web
+:slug: hello
+My *first* post using `Pelican &lt;http://docs.getpelican.com/en/3.3.0/getting_started.html&gt;`_!
+</pre>
+<p>Items como :date :tags :slug son metada que puede ser usaada en la salida generada de HTML. Estos elementos y otros son incluidos
+en Pelican y los usuarios pueden crear sus propios elementos en <a class="reference external" href="http://docs.getpelican.com/en/3.1.1/themes.html#theming-pelican">templates</a>.</p>
+<p>Finalmente guardamos el archivo y probamos el nuevo blog ejecutando el servidor desarrollado en Pelican. Esto tomará todos los archivos
+<em>.rst  y generará  los archivos HTML en **output*</em> y se prodrá visualizar en el browser <a class="reference external" href="http://localhost:8000">http://localhost:8000</a>:</p>
+<p>(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ make devserver</p>
+<p>El servidor se ejecutará en backgroud y se actualizara en caso hubiera una actualización de contenido para la vista. Para detener el
+servidor debemos ejecutar el comando  ./develop_server.sh stop.</p>
+<p><strong>3 AJUSTES</strong>.</p>
+<p>Ejecutando pelican-quickstart creamos 2 archivos de configuracion: pelicanconf.py  y publishconf.py
+Las configuraciones primarias se encuentra en pelicanconf.py.  Los ajustes pueden ser usados como variables en posts, páginas y templates.
+Esta es como luce mi configuracion:D....  Algunos de los ajustes como AUTHOR y SITENAME fueron generados automaticamente por Pelican y
+otros como ABOUT_ME los hice yo.</p>
+<pre class="literal-block">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- #
+from __future__ import unicode_literals
+
+AUTHOR = u'Alexander Valdez Portocarrero'
+SITENAME = u'Alex&#64;nderV.'
+SITEURL = ''
+
+PATH = 'content'
+
+TIMEZONE = 'Europe/Paris'
+
+DEFAULT_LANG = u'en'
+
+DEFAULT_DATA_FORMAT= '%A %d %B %Y'
+
+#Static paths will be copied without parsing thero
+STATIC_PATHS= ['images','extra']
+ABOUT_ME = &quot;Whatever you want to say about yourself&quot;
+STATIC_PATHS = ['images']
+PROFILE_PICTURE = &quot;bananaprofilepicture.png&quot;
+
+HEADER_IMAGE = &quot;alexheaderimage.png&quot;
+GITHUB_ICON= &quot;github-icon&quot;
+
+
+#Shift the installed location of a file
+EXTRA_PATH_METADA={
+'extra/CNAME':{'path','CNAME'},
+}
+
+#Extract post date from filename
+FILENAME_METADA= '(?P&lt;date&gt;\d{4}-\d{2}-\d{2})'
+
+#Sole author and don't  use categories... dis
+AUTHOR_SAVE_AS= False
+AUTHORS_SAVE_AS=False
+CATEGORY_SAVE_AS=False
+CATEGORIES_SAVE_AS=False
+
+# Feed generation is usually not desired when developing
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+
+#URL settings
+#Uncomment following line if you want documente-relative URLSs when developing
+RELATIVE_URLS = True
+ARTICLE_URL='{slug}.html'
+PAGE_URL ='{slug}.html'
+PAGE_SAVE_AS='{slug}.html'
+TAG_URL='tag-{slug}.html'
+TAGE_SAVE_AS='tag-{slug}.html'
+TAGS_URL='tags.html'
+TAGS_SAVE_AS='tags.html'
+ARCHIVES_URL='archives.html'
+ARCHIVES_SAVE_AS='archives.html'
+
+#Contact
+EMAIL_ADDR= 'alex.valdezp22 at gmail dot com'
+
+#Plugins
+PLUGIN_PATH='/home/alex/pelican_plugins/pelican-plugins'
+PLUGINS=['neighbors']
+
+#Theme
+#THEME='/home/alex/pelican_themes/pelican-themes/pelican-bootstrap3'
+THEME='/home/alex/pelican_themes/pelican-bootstrap3-lovers'
+BOOTSTRAP_THEME='lovers'
+
+WHOAMI_URL='/home/alex/Pictures/pelican_images/whoami.jpg'
+GREETING= 'Howdy!'
+#LICENCE_NAME='BY-NC-SA'
+#LICENCE_URL='http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US'
+#LICENCE_URL_IMG='http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png'
+JINJA_EXTENSIONS=['jinja2.ext.loopcontrols']
+
+#Social
+TWITTER_URL='https://twitter.com/alexvaldez900'
+GITTHUB_URL='https://github.com/alexvaldez24'
+
+#Tag cloud
+TAG_CLOUD_STEPS = 4
+
+# Blogroll
+LINKS = (('Pelican', 'http://getpelican.com/'),
+('Python.org', 'http://python.org/'),
+('Jinja2', 'http://jinja.pocoo.org/'),
+('You can modify those links in your config file', '#'),)
+
+# Social widget
+#SOCIAL = (('You can add links in your config file', '#'),
+#          ('Another social link', '#'),)
+# Social settings
+SOCIAL = (('github', 'https://github.com/alexvaldez24'),
+('twitter', 'https://twitter.com/alexvaldez900'),)
+
+DEFAULT_PAGINATION = False
+
+# Uncomment following line if you want document-relative URLs when developing
+#RELATIVE_URLS = True
+</pre>
+<p>El segundo archivo de configuración se llama publishconf.py , este contiene ajustes de prioridad para publicar el cotenido:</p>
+<pre class="literal-block">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- #
+from __future__ import unicode_literals
+
+# This file is only used if you use `make publish` or
+# explicitly specify it as your config file.
+
+import os
+import sys
+sys.path.append(os.curdir)
+from pelicanconf import *
+
+SITEURL = 'http://www.avaldezp.com'
+RELATIVE_URLS = False
+
+FEED_ALL_ATOM = 'feed.xml'
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM=None
+Feed_Max_ITEMS= 25
+
+DELETE_OUTPUT_DIRECTORY = True
+
+# Following items are often useful when publishing
+
+#DISQUS_SITENAME = &quot;&quot;
+#GOOGLE_ANALYTICS = &quot;&quot;
+</pre>
+<p><strong>4 PLUGINS</strong>.</p>
+<p>Plugins estan disponibles para ampliar la funcionalidad de Pelican. He usado el plugin llamado
+<a class="reference external" href="https://github.com/getpelican/pelican-plugins/tree/master/neighbors">neighbors</a> que hace sencillo añadir
+links y ordenar artículos nuevos y antiguos en relacion con la página actual.</p>
+<p>Para habilitar plugins en pelicanconf.py:</p>
+<pre class="literal-block">
+PLUGIN_PATH='/home/alex/pelican_plugins/pelican-plugins'
+PLUGINS=['neighbors']
+</pre>
+<p><strong>5 THEMES</strong>.</p>
+<p>Pelican incluye un tema por defecto que nos permite empezar y tambien hay una colección de
+<a class="reference external" href="https://github.com/getpelican/pelican-themes">temas creados por los usuarios</a>  yo he utilizado el tema
+llamado <a class="reference external" href="https://github.com/chdoig/pelican-bootstrap3-lovers">Pelican-bootstrap3-lovers</a>.</p>
+<p>Para usar un tema se debe setear la ubicación de el contenido en pelicanconf.py:</p>
+<pre class="literal-block">
+THEME='/home/alex/pelican_themes/pelican-bootstrap3-lovers'
+BOOTSTRAP_THEME='lovers'
+</pre>
+<p><strong>6 PUBLISH</strong>.</p>
+<p>Cuando estemos listos para generar y publicar :</p>
+<pre class="literal-block">
+(pelican)alex&#64;alex-Satellite-P745D:~/.virtualenvs/pelican/alex$ make publish
+</pre>
+<p>Todo el contenido del blog esta situado en <strong>output</strong> listo para ser subido a un servicio de hosting. Como todo el contenido es estático
+hay muchas opciones disponibles.  Yo uso de manera gratuita  github como ven
+<a class="reference external" href="http://alexvaldez24.github.io/avaldezp/">Alex&#64;nderVP</a>.</p>
+<p>My <em>first</em> post using <a class="reference external" href="http://docs.getpelican.com/en/3.3.0/getting_started.html">Pelican</a>
+Buena Suerte!</p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+        
+        <ul class="pager">
+            <li class="previous">
+                <a href="./Hello.html">&larr;
+                    Hello World
+                </a>
+            </li>
+            <li class="next">
+                <a href="./Segundo.html">
+                    Host de un BLOG en una Página de GitHub&rarr;
+                </a>
+            </li>
+        </ul>
+            </section>
+
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12">
+                <div class="row text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <img class="img-circle image100" src="./images/alexprofilepicture.png" alt="" />
+                    </div>
+                </div><hr />
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a class="btn btn-default" href="./index.html">Home</a></li>
+                    <li>
+                        <a class="btn btn-default" href="./archives.html">Archives</a>
+                    </li>
+                </ul><hr />
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        ~ About me ~
+    </div>
+    <div class="panel-body">
+        Bach. Ingenieria Electronica - 26 Años. Trabajo en el Area de Operaciones, Radio Observatorio de Jicamarca. Amante de la Programacion.
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        ~ Follow me ~
+    </div>
+    <div class="panel-body">
+        <a href="https://github.com/alexvaldez24"><img
+            class= "social-icon" src="./theme/images/github-icon.png"></img>
+        </a>
+        <a href="https://twitter.com/alexvaldez900"><img
+            class= "social-icon" src="./theme/images/twitter-icon.png"></img>
+        </a>
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        ~ Interesting Links ~
+    </div>
+    <div class="panel-body">
+        <li class="list-group-item"><a href="http://getpelican.com/">Pelican
+        </a></li>
+        <li class="list-group-item"><a href="http://python.org/">Python.org
+        </a></li>
+        <li class="list-group-item"><a href="http://jinja.pocoo.org/">Jinja2
+        </a></li>
+        <li class="list-group-item"><a href="#">You can modify those links in your config file
+        </a></li>
+    </div>
+</div>
+
+                    
+            </div>
+        </div>
+        <hr class="hidden-xs"/>
+        <div class="row">
+            <div class="footer">
+                <div class="container">
+                    <p class="footnote">©Christine Doig. Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</i></a>. Thanks to <a href="http://twitter.github.com/bootstrap/">Bootstrap</i></a>, <a href="http://subtlepatterns.com/">Subtle Patterns</i></a> and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome.</a><a href="https://github.com/chdoig/pelican-bootstrap3-lovers">Lovers Theme</a> by Christine Doig
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.pageslide.min.js"></script>
+<script src="./theme/js/prism.js"></script>
+<script>function validateForm(query)
+    {return (query.length > 0);}
+</script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+</body>
+</html>
