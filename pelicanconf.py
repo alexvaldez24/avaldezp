@@ -16,11 +16,11 @@ DEFAULT_DATA_FORMAT= '%A %d %B %Y'
 
 #Static paths will be copied without parsing thero
 STATIC_PATHS= ['images','extra']
-ABOUT_ME = "Whatever you want to say about yourself"
+ABOUT_ME = "Bach. Ingenieria Electronica - 26 Años. Trabajo en el Area de Operaciones, Radio Observatorio de Jicamarca. Amante de la Programacion."
 STATIC_PATHS = ['images']
-PROFILE_PICTURE = "bananaprofilepicture.png"
+PROFILE_PICTURE = "alexprofilepicture.png"
 
-HEADER_IMAGE = "alexheaderimage.png"
+HEADER_IMAGE = "limalagrisheaderimage.png"
 GITHUB_ICON= "github-icon"
 
 
