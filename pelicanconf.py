@@ -16,7 +16,7 @@ DEFAULT_DATA_FORMAT= '%A %d %B %Y'
 
 #Static paths will be copied without parsing thero
 STATIC_PATHS= ['images','extra']
-ABOUT_ME = "Bach. Ingenieria Electronica - 26 Años. Trabajo en el Area de Operaciones, Radio Observatorio de Jicamarca. Amante de la Programacion."
+ABOUT_ME = "Ingeniero Electrónico - 26 Años. Trabajo en el Area de Operaciones, Radio Observatorio de Jicamarca. Amante de la Programacion."
 STATIC_PATHS = ['images']
 PROFILE_PICTURE = "alexprofilepicture.png"
 
